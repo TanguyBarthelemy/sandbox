@@ -16,6 +16,11 @@
 # tryCatch({1 + x}, error = function(e) print(e)) 
 # print(format(Sys.Date(), "%Y-%b-%d")) 
 
+print(Sys.info())
+
+print(sessionInfo())
+
+print(Sys.timezone())
 
 M_Drucker_birth <- base::as.Date(x = "1942-09-12")
 noel_2023 <- base::as.Date(x = "25/12/2023", format = "%d/%m/%Y")
