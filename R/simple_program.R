@@ -17,18 +17,18 @@
 # print(format(Sys.Date(), "%Y-%b-%d")) 
 
 
-# Sys.setlocale("LC_CTYPE", "C")
-# Sys.setlocale("LC_NUMERIC", "C")
-# Sys.setlocale("LC_TIME", "C")
-# Sys.setlocale("LC_COLLATE", "C")
-# Sys.setlocale("LC_MONETARY", "C")
-# Sys.setlocale("LC_MESSAGES", "C")
-# Sys.setlocale("LC_PAPER", "C")
-# Sys.setlocale("LC_NAME", "C")
-# Sys.setlocale("LC_ADDRESS", "C")
-# Sys.setlocale("LC_TELEPHONE", "C")
-# Sys.setlocale("LC_MEASUREMENT", "C")
-# Sys.setlocale("LC_IDENTIFICATION", "C")
+Sys.setlocale("LC_CTYPE", "C")
+Sys.setlocale("LC_NUMERIC", "C")
+Sys.setlocale("LC_TIME", "C")
+Sys.setlocale("LC_COLLATE", "C")
+Sys.setlocale("LC_MONETARY", "C")
+Sys.setlocale("LC_MESSAGES", "C")
+Sys.setlocale("LC_PAPER", "C")
+Sys.setlocale("LC_NAME", "C")
+Sys.setlocale("LC_ADDRESS", "C")
+Sys.setlocale("LC_TELEPHONE", "C")
+Sys.setlocale("LC_MEASUREMENT", "C")
+Sys.setlocale("LC_IDENTIFICATION", "C")
 
 cat("------------------ Chapter 1 -------------------\n")
 
@@ -100,15 +100,13 @@ print(b, tz = "Japan", usetz = TRUE)
 
 cat("--------- Sub Chapter 5 -------\n")
 
-
-
-print(a)
-
-print(b)
-
+dput(as.POSIXct(chute_mur_berlin, tz = "UTC"))
 dput(a)
-
 dput(b)
+
+# Solution :
+# with_tz
+# attr(data$dateTime, "tzone") <- "Europe/Paris"
 
 
 
@@ -139,3 +137,33 @@ Sys.setlocale("LC_TIME", "C")
 format(Sys.time(), format = "%c")
 
 
+
+cat("------------------ Chapter 4 -------------------\n")
+
+categories <- c("LC_CTYPE", 
+                "LC_NUMERIC", 
+                "LC_TIME", 
+                "LC_COLLATE", 
+                "LC_MONETARY", 
+                "LC_MESSAGES", 
+                "LC_PAPER", 
+                "LC_NAME", 
+                "LC_ADDRESS", 
+                "LC_TELEPHONE", 
+                "LC_MEASUREMENT", 
+                "LC_IDENTIFICATION")
+
+values <- c("C", 
+            "de_DE", "de_DE.UTF-8", "German.UTF-8", "de_DE.utf8", 
+            "fr_FR", "fr_FR.UTF-8", "French.UTF-8", "fr_FR.utf8", 
+            "en_US", "en_US.UTF-8", "English.UTF-8", "en_US.utf8")
+
+for (cat in categories) {
+    cat("\n")
+    print(cat)
+    for (val in values) {
+        print(val)
+        try(Sys.setlocale(cat, val))
+        cat(format(Sys.time(), format = "%d %B %Y"), "\n")
+    }
+}
