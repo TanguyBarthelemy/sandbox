@@ -30,7 +30,7 @@
 # Sys.setlocale("LC_MEASUREMENT", "C")
 # Sys.setlocale("LC_IDENTIFICATION", "C")
 
-cat("------------------ Chapter 1 -------------------")
+cat("------------------ Chapter 1 -------------------\n")
 
 print(Sys.info())
 
@@ -38,7 +38,7 @@ print(sessionInfo())
 
 print(Sys.timezone())
 
-cat("------------------ Chapter 2 -------------------")
+cat("------------------ Chapter 2 -------------------\n")
 
 M_Drucker_birth <- base::as.Date(x = "1942-09-12")
 noel_2023 <- base::as.Date(x = "25/12/2023", format = "%d/%m/%Y")
@@ -53,10 +53,13 @@ heure_los_angeles <- as.POSIXct(x = pied_sur_la_lune, tz = "America/Los_Angeles"
 # définition en date et heure locale avec le bon fuseau horaire
 chute_mur_berlin <- as.POSIXct(x = "1989-11-09 18:00", tz = "Europe/Berlin")
 
+cat("--------- Sub Chapter 1 -------\n")
 # Heure locale
 print(chute_mur_berlin)
 print(chute_mur_berlin, usetz = FALSE)
 print(chute_mur_berlin, usetz = TRUE)
+
+cat("--------- Sub Chapter 2 -------\n")
 
 print(chute_mur_berlin, tz = "UTC")
 print(chute_mur_berlin, tz = "UTC", usetz = FALSE)
@@ -66,28 +69,38 @@ print(chute_mur_berlin, tz = "UTC", usetz = TRUE)
 # print(chute_mur_berlin)
 
 
+cat("--------- Sub Chapter 3 -------\n")
 # Heure UTC (exemple en islande)
-eve2 <- as.POSIXct(chute_mur_berlin, tz = "UTC")
 
-print(eve2)
-print(eve2, usetz = FALSE)
-print(eve2, usetz = TRUE)
-
-print(eve2, tz = "UTC")
-print(eve2, tz = "UTC", usetz = FALSE)
-print(eve2, tz = "UTC", usetz = TRUE)
-
-
-
-
-
-
-
-a <- chute_mur_berlin
-b <- chute_mur_berlin
+print(as.POSIXct(chute_mur_berlin, tz = "UTC"))
+print(as.POSIXct(chute_mur_berlin, tz = "Japan"))
 
 a <- as.POSIXct(chute_mur_berlin, tz = "Japan")
+b <- chute_mur_berlin
 attr(b, "tzone") <- "Japan"
+
+print(a)
+print(a, usetz = FALSE)
+print(a, usetz = TRUE)
+
+print(b)
+print(b, usetz = FALSE)
+print(b, usetz = TRUE)
+
+cat("--------- Sub Chapter 4 -------\n")
+
+print(a, tz = "Japan")
+print(a, tz = "Japan", usetz = FALSE)
+print(a, tz = "Japan", usetz = TRUE)
+
+print(b, tz = "Japan")
+print(b, tz = "Japan", usetz = FALSE)
+print(b, tz = "Japan", usetz = TRUE)
+
+
+cat("--------- Sub Chapter 5 -------\n")
+
+
 
 print(a)
 
@@ -99,18 +112,7 @@ dput(b)
 
 
 
-cat("------------------ Chapter 3 -------------------")
-
-
-
-
-
-
-
-
-
-
-
+cat("------------------ Chapter 3 -------------------\n")
 
 
 
