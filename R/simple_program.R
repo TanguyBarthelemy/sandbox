@@ -139,18 +139,7 @@ format(Sys.time(), format = "%c")
 
 cat("------------------ Chapter 4 -------------------\n")
 
-categories <- c("LC_CTYPE", 
-                "LC_NUMERIC", 
-                "LC_TIME", 
-                "LC_COLLATE", 
-                "LC_MONETARY", 
-                "LC_MESSAGES", 
-                "LC_PAPER", 
-                "LC_NAME", 
-                "LC_ADDRESS", 
-                "LC_TELEPHONE", 
-                "LC_MEASUREMENT", 
-                "LC_IDENTIFICATION")
+categories <- c("LC_TIME", "LC_ALL")
 
 values <- c("C", 
             "de_DE", "de_DE.UTF-8", "German.UTF-8", "de_DE.utf8", 
@@ -162,8 +151,18 @@ for (cat in categories) {
     print(cat)
     for (val in values) {
         print(val)
-        try(Sys.setlocale(cat, val))
+        try(Sys.setlocale(category = cat, locale = val))
         cat(format(Sys.time(), format = "%d %B %Y"), "\n")
-        tryCatch({1 + x}, error = function(e) print(e))
     }
 }
+
+
+Sys.setenv(LANG = "en")
+tryCatch({1 + x}, error = function(e) print(e))
+Sys.setenv(LANG = "fr")
+tryCatch({1 + x}, error = function(e) print(e))
+
+Sys.setLanguage("en")
+tryCatch({1 + x}, error = function(e) print(e))
+Sys.setLanguage("fr")
+tryCatch({1 + x}, error = function(e) print(e))
