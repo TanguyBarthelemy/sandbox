@@ -162,6 +162,11 @@ tryCatch({1 + x}, error = function(e) print(e))
 Sys.setenv(LANG = "fr")
 tryCatch({1 + x}, error = function(e) print(e))
 
+Sys.setenv("LANGUAGE" = "en")
+tryCatch({1 + x}, error = function(e) print(e))
+Sys.setenv("LANGUAGE" = "fr")
+tryCatch({1 + x}, error = function(e) print(e))
+
 Sys.setLanguage("en")
 tryCatch({1 + x}, error = function(e) print(e))
 Sys.setLanguage("fr")
