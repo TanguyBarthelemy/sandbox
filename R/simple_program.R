@@ -55,13 +55,20 @@ chute_mur_berlin <- as.POSIXct(x = "1989-11-09 18:00", tz = "Europe/Berlin")
 
 # Heure locale
 print(chute_mur_berlin)
+print(chute_mur_berlin, usetz = FALSE)
+print(chute_mur_berlin, usetz = TRUE)
 
-attr(chute_mur_berlin, "tzone") <- "Japan"
-print(chute_mur_berlin)
+print(chute_mur_berlin, tz = "UTC")
+print(chute_mur_berlin, tz = "UTC", usetz = FALSE)
+print(chute_mur_berlin, tz = "UTC", usetz = TRUE)
+
+# attr(chute_mur_berlin, "tzone") <- "Japan"
+# print(chute_mur_berlin)
 
 
 # Heure UTC (exemple en islande)
-print(as.POSIXct(chute_mur_berlin, tz = "UTC"))
+print(as.POSIXct(chute_mur_berlin, tz = "UTC"), usetz = FALSE)
+print(as.POSIXct(chute_mur_berlin, tz = "UTC"), usetz = TRUE)
 
 
 
