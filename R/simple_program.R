@@ -13,22 +13,21 @@
 # Sys.setlocale("LC_TIME", "de_DE.utf8") 
 # Sys.setlocale("LC_TIME", "fr_CA.UTF-8") 
 # 
-# tryCatch({1 + x}, error = function(e) print(e)) 
-# print(format(Sys.Date(), "%Y-%b-%d")) 
+# print(format(Sys.Date(), "%Y-%b-%d"))
 
 
-Sys.setlocale("LC_CTYPE", "C")
-Sys.setlocale("LC_NUMERIC", "C")
-Sys.setlocale("LC_TIME", "C")
-Sys.setlocale("LC_COLLATE", "C")
-Sys.setlocale("LC_MONETARY", "C")
-Sys.setlocale("LC_MESSAGES", "C")
-Sys.setlocale("LC_PAPER", "C")
-Sys.setlocale("LC_NAME", "C")
-Sys.setlocale("LC_ADDRESS", "C")
-Sys.setlocale("LC_TELEPHONE", "C")
-Sys.setlocale("LC_MEASUREMENT", "C")
-Sys.setlocale("LC_IDENTIFICATION", "C")
+# Sys.setlocale("LC_CTYPE", "C")
+# Sys.setlocale("LC_NUMERIC", "C")
+# Sys.setlocale("LC_TIME", "C")
+# Sys.setlocale("LC_COLLATE", "C")
+# Sys.setlocale("LC_MONETARY", "C")
+# Sys.setlocale("LC_MESSAGES", "C")
+# Sys.setlocale("LC_PAPER", "C")
+# Sys.setlocale("LC_NAME", "C")
+# Sys.setlocale("LC_ADDRESS", "C")
+# Sys.setlocale("LC_TELEPHONE", "C")
+# Sys.setlocale("LC_MEASUREMENT", "C")
+# Sys.setlocale("LC_IDENTIFICATION", "C")
 
 cat("------------------ Chapter 1 -------------------\n")
 
@@ -165,5 +164,6 @@ for (cat in categories) {
         print(val)
         try(Sys.setlocale(cat, val))
         cat(format(Sys.time(), format = "%d %B %Y"), "\n")
+        tryCatch({1 + x}, error = function(e) print(e))
     }
 }
