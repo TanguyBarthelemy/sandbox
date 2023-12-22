@@ -16,11 +16,29 @@
 # tryCatch({1 + x}, error = function(e) print(e)) 
 # print(format(Sys.Date(), "%Y-%b-%d")) 
 
+
+# Sys.setlocale("LC_CTYPE", "C")
+# Sys.setlocale("LC_NUMERIC", "C")
+# Sys.setlocale("LC_TIME", "C")
+# Sys.setlocale("LC_COLLATE", "C")
+# Sys.setlocale("LC_MONETARY", "C")
+# Sys.setlocale("LC_MESSAGES", "C")
+# Sys.setlocale("LC_PAPER", "C")
+# Sys.setlocale("LC_NAME", "C")
+# Sys.setlocale("LC_ADDRESS", "C")
+# Sys.setlocale("LC_TELEPHONE", "C")
+# Sys.setlocale("LC_MEASUREMENT", "C")
+# Sys.setlocale("LC_IDENTIFICATION", "C")
+
+cat("------------------ Chapter 1 -------------------")
+
 print(Sys.info())
 
 print(sessionInfo())
 
 print(Sys.timezone())
+
+cat("------------------ Chapter 2 -------------------")
 
 M_Drucker_birth <- base::as.Date(x = "1942-09-12")
 noel_2023 <- base::as.Date(x = "25/12/2023", format = "%d/%m/%Y")
@@ -38,8 +56,49 @@ chute_mur_berlin <- as.POSIXct(x = "1989-11-09 18:00", tz = "Europe/Berlin")
 # Heure locale
 print(chute_mur_berlin)
 
+attr(chute_mur_berlin, "tzone") <- "Japan"
+print(chute_mur_berlin)
+
+
 # Heure UTC (exemple en islande)
 print(as.POSIXct(chute_mur_berlin, tz = "UTC"))
+
+
+
+
+
+
+
+a <- chute_mur_berlin
+b <- chute_mur_berlin
+
+a <- as.POSIXct(chute_mur_berlin, tz = "Japan")
+attr(b, "tzone") <- "Japan"
+
+print(a)
+
+print(b)
+
+dput(a)
+
+dput(b)
+
+
+
+cat("------------------ Chapter 3 -------------------")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # définition en date et heure locale avec le bon fuseau horaire
 victoire_fifa_1998 <- as.POSIXct(x = "1998-07-12 21:00", tz = "Europe/Paris")
