@@ -171,3 +171,5 @@ Sys.setLanguage("en")
 tryCatch({1 + x}, error = function(e) print(e))
 Sys.setLanguage("fr")
 tryCatch({1 + x}, error = function(e) print(e))
+
+print(warnings())
