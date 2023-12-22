@@ -28,6 +28,13 @@ jobs:
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: 4.2.3
+      
+      - name: "Set language parameters"
+        run: |
+          echo "LC_ALL=fr_FR.UTF-8" >> /etc/environment
+          echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen
+          echo "LANG=fr_FR.UTF-8" > /etc/locale.conf
+          locale-gen fr_FR.UTF-8
 
       - name: test-r-code
         run: Rscript ./R/simple_program.R
