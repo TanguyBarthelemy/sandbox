@@ -67,8 +67,15 @@ print(chute_mur_berlin, tz = "UTC", usetz = TRUE)
 
 
 # Heure UTC (exemple en islande)
-print(as.POSIXct(chute_mur_berlin, tz = "UTC"), usetz = FALSE)
-print(as.POSIXct(chute_mur_berlin, tz = "UTC"), usetz = TRUE)
+eve2 <- as.POSIXct(chute_mur_berlin, tz = "UTC")
+
+print(eve2)
+print(eve2, usetz = FALSE)
+print(eve2, usetz = TRUE)
+
+print(eve2, tz = "UTC")
+print(eve2, tz = "UTC", usetz = FALSE)
+print(eve2, tz = "UTC", usetz = TRUE)
 
 
 
