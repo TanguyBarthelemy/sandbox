@@ -10,15 +10,16 @@ name: test-r-code
 
 jobs:
   test-r-code:
-    runs-on: ubuntu-latest #${{ matrix.os }}
+  
+    runs-on: ${{ matrix.os }}
 
-    name: Testing R code
+    name: Testing R code on ${{ matrix.os }} (r ${{ matrix.r }})
 
-    # strategy:
-    #   fail-fast: false
-      # matrix:
-        # os: [ 'ubuntu-latest', 'windows-latest', 'macOS-latest' ]
-        # r: [ 'devel', 'release', 'oldrel-1', '4.3.1', '4.3.0', '4.2.3', '4.2.2', '4.2.1', '4.2.0', '4.1.3', '4.1.2', '4.1.1', '4.1.0', '4.0.5', '3.6.1' ]
+    strategy:
+      fail-fast: false
+    matrix:
+      os: [ 'ubuntu-latest', 'windows-latest', 'macOS-latest' ]
+      r: [ 'devel', 'release', 'oldrel-1', '4.3.1', '4.3.0', '4.2.3', '4.2.2', '4.2.1', '4.2.0', '4.1.3', '4.1.2', '4.1.1', '4.1.0', '4.0.5', '3.6.1' ]
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -29,12 +30,12 @@ jobs:
         with:
           r-version: 4.2.3
       
-      - name: "Set language parameters"
-        run: |
-          echo "LC_ALL=fr_FR.UTF-8" >> /etc/environment
-          echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen
-          echo "LANG=fr_FR.UTF-8" > /etc/locale.conf
-          locale-gen fr_FR.UTF-8
+      # - name: "Set language parameters"
+      #   run: |
+      #     echo "LC_ALL=fr_FR.UTF-8" >> /etc/environment
+      #     echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen
+      #     echo "LANG=fr_FR.UTF-8" > /etc/locale.conf
+      #     locale-gen fr_FR.UTF-8
 
       - name: test-r-code
-        run: Rscript ./R/simple_program.R
+        run: Rscript ./R/signed_zero.R
