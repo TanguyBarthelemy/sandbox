@@ -8,3 +8,5 @@ print(y1)
 print(y2)
 
 stopifnot(y1 != y2)
+stopifnot(runif(1) > 0.5)
+
