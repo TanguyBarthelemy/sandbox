@@ -1,5 +1,10 @@
 x1 <- 0
 x2 <- -0
 
-print(1/x1)
-print(1/x2)
+y1 <- 1/x1
+y2 <- 1/x2
+
+print(y1)
+print(y2)
+
+stopifnot(y1 != y2)
