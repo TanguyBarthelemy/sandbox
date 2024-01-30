@@ -36,6 +36,10 @@ jobs:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '21'
       
+      - name: "Configure java pour ubuntu et macos"
+        if: runner.os != 'Windows'
+        run: sudo R CMD javareconf
+      
       # - name: "Set language parameters"
       #   run: |
       #     echo "LC_ALL=fr_FR.UTF-8" >> /etc/environment
