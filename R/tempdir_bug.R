@@ -1,6 +1,5 @@
 
-
-install.packages(c("RJDemetra", "remotes"))
+install.packages(c("rJava", "RJDemetra", "remotes"))
 remotes::install_github("InseeFrLab/rjdworkspace")
 
 library("RJDemetra")
