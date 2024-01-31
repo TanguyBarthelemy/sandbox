@@ -21,12 +21,12 @@ printt(dir_ws)
 printt(normalizePath(dir_ws))
 printt(dir.exists(dir_ws))
 
-printt(list.files(dir_ws, all.files = TRUE, recursive = TRUE))
+printt(list.files(dir_ws, all.files = TRUE, recursive = TRUE, full.names = TRUE))
 
 new_path <- file.path(dir_ws, "test.csv")
 write.table(iris, file = new_path)
 
-printt(list.files(dir_ws, all.files = TRUE, recursive = TRUE))
+printt(list.files(dir_ws, all.files = TRUE, recursive = TRUE, full.names = TRUE))
 
 new_iris <- read.table(new_path)
 print(head(new_iris))
@@ -58,7 +58,7 @@ printt(path_ws_to)
 printt(normalizePath(path_ws_to))
 printt(normalizePath(path_ws_from))
 
-printt(list.files(dir_ws, all.files = TRUE, recursive = TRUE))
+printt(list.files(dir_ws, all.files = TRUE, recursive = TRUE, full.names = TRUE))
 
 ws_input <- load_workspace(path_ws_from)
 ws_output <- load_workspace(path_ws_to)
