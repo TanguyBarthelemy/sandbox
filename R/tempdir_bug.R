@@ -9,10 +9,14 @@ dir_ws <- tempdir()
 
 print(dir_ws)
 print(normalizePath(dir_ws))
+print(dir.exists(dir_ws))
+
+print(list.files(dir_ws, all.files = TRUE))
 
 new_path <- file.path(dir_ws, "test.csv")
-
 write.table(iris, file = new_path)
+
+print(list.files(dir_ws, all.files = TRUE))
 
 new_iris <- read.table(new_path)
 print(head(new_iris))
