@@ -46,6 +46,10 @@ jobs:
       #     echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen
       #     echo "LANG=fr_FR.UTF-8" > /etc/locale.conf
       #     locale-gen fr_FR.UTF-8
-
+      
+      - name: "Install R packages"
+        run: install.packages("remotes");remotes::install_github("InseeFrLab/rjdworkspace")
+        shell: Rscript {0}
+        
       - name: test-r-code
         run: Rscript ./R/tempdir_bug.R
