@@ -7,7 +7,8 @@ library("rjdworkspace")
 
 printt <- function(obj) {
     obj_name <- deparse(substitute(obj))
-    cat(obj_name, ":", obj, "\n")
+    cat(obj_name, ":\n")
+    cat(obj, sep = "\n")
     return(invisible(NULL))
 }
 
@@ -28,7 +29,7 @@ write.table(iris, file = new_path)
 printt(list.files(dir_ws, all.files = TRUE, recursive = TRUE))
 
 new_iris <- read.table(new_path)
-printt(head(new_iris))
+print(head(new_iris))
 
 
 # rjdworkspace part ------------------------------------------------------------
