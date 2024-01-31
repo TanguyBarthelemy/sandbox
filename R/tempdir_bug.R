@@ -5,7 +5,7 @@
 library("RJDemetra")
 library("rjdworkspace")
 
-printtt <- function(obj) {
+printt <- function(obj) {
     obj_name <- deparse(substitute(obj))
     cat(obj_name, ":", obj, "\n")
     return(invisible(NULL))
