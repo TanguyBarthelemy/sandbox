@@ -117,7 +117,7 @@ print(heure_en_france, tz = "CET", usetz = TRUE)
 print(heure_los_angeles)
 
 
-
+print(as.POSIXct(pied_sur_la_lune, tz = "Europe/Paris"))
 
 
 cat("------------------ Chapter 3 -------------------\n")
