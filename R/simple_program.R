@@ -115,6 +115,7 @@ print(heure_en_france, tz = "CET", usetz = FALSE)
 print(heure_en_france, tz = "CET", usetz = TRUE)
 
 print(heure_los_angeles)
+print(heure_los_angeles, tz = "America/Los_Angeles")
 
 
 print(as.POSIXct(pied_sur_la_lune, tz = "Europe/Paris"))
@@ -150,6 +151,9 @@ format(Sys.time(), format = "%c")
 
 cat("------------------ Chapter 4 -------------------\n")
 
+
+cat("------------------ Sub-chapter 1 -------------------\n")
+
 categories <- c("LC_TIME", "LC_ALL")
 
 values <- c("C", 
@@ -168,15 +172,29 @@ for (cat in categories) {
 }
 
 
+cat("------------------ Sub-chapter 1.5 -------------------\n")
+
+Sys.setlocale(category = "LC_ALL", locale = "fr_FR")
+cat(format(Sys.time(), format = "%d %B %Y"), "\n")
+
+
+cat("------------------ Sub-chapter 2 -------------------\n")
+
 Sys.setenv(LANG = "en")
 tryCatch({1 + x}, error = function(e) print(e))
 Sys.setenv(LANG = "fr")
 tryCatch({1 + x}, error = function(e) print(e))
 
+
+cat("------------------ Sub-chapter 3 -------------------\n")
+
 Sys.setenv("LANGUAGE" = "en")
 tryCatch({1 + x}, error = function(e) print(e))
 Sys.setenv("LANGUAGE" = "fr")
 tryCatch({1 + x}, error = function(e) print(e))
+
+
+cat("------------------ Sub-chapter 3 -------------------\n")
 
 Sys.setLanguage("en")
 tryCatch({1 + x}, error = function(e) print(e))
