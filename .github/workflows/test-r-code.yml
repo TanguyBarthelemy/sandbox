@@ -33,7 +33,8 @@ jobs:
           r-version: ${{ matrix.r }}
     
       - name: install lubridate
-        run: Rscript 'install.packages("lubridate")'
+        run: install.packages("lubridate")
+        shell: Rscript {0}
     
       - name: test-r-code
         run: Rscript ./R/simple_program.R
