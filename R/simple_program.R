@@ -107,6 +107,17 @@ dput(b)
 # with_tz
 # attr(data$dateTime, "tzone") <- "Europe/Paris"
 
+cat("--------- Sub Chapter 6 -------\n")
+
+print(heure_en_france)
+print(heure_en_france, tz = "CET")
+print(heure_en_france, tz = "CET", usetz = FALSE)
+print(heure_en_france, tz = "CET", usetz = TRUE)
+
+print(heure_los_angeles)
+
+
+
 
 
 cat("------------------ Chapter 3 -------------------\n")

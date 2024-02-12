@@ -32,25 +32,5 @@ jobs:
         with:
           r-version: ${{ matrix.r }}
     
-      - uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin' # See 'Supported distributions' for available options
-          java-version: '21'
-      
-      - name: "Configure java pour ubuntu et macos"
-        if: runner.os != 'Windows'
-        run: sudo R CMD javareconf
-      
-      # - name: "Set language parameters"
-      #   run: |
-      #     echo "LC_ALL=fr_FR.UTF-8" >> /etc/environment
-      #     echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen
-      #     echo "LANG=fr_FR.UTF-8" > /etc/locale.conf
-      #     locale-gen fr_FR.UTF-8
-      
-      - name: "Install R packages"
-        run: install.packages("remotes");remotes::install_github("InseeFrLab/rjdworkspace")
-        shell: Rscript {0}
-        
       - name: test-r-code
-        run: Rscript ./R/tempdir_bug.R
+        run: Rscript ./R/simple_program.R
