@@ -207,8 +207,9 @@ tryCatch({1 + x}, error = function(e) print(e))
 
 cat("------------------ Chapter 5 -------------------\n")
 
-install.packages("lubridate")
+print(sessionInfo())
 library("lubridate")
+print(sessionInfo())
 
 now()
 now() - days(2)
