@@ -159,7 +159,8 @@ categories <- c("LC_TIME", "LC_ALL")
 values <- c("C", 
             "de_DE", "de_DE.UTF-8", "German.UTF-8", "de_DE.utf8", 
             "fr_FR", "fr_FR.UTF-8", "French.UTF-8", "fr_FR.utf8", 
-            "en_US", "en_US.UTF-8", "English.UTF-8", "en_US.utf8")
+            "en_US", "en_US.UTF-8", "English.UTF-8", "en_US.utf8", 
+            "French", "English")
 
 for (cat in categories) {
     cat("\n")
@@ -171,6 +172,7 @@ for (cat in categories) {
     }
 }
 
+print(warnings())
 
 cat("------------------ Sub-chapter 1.5 -------------------\n")
 
@@ -201,7 +203,6 @@ tryCatch({1 + x}, error = function(e) print(e))
 Sys.setLanguage("fr")
 tryCatch({1 + x}, error = function(e) print(e))
 
-print(warnings())
 
 
 cat("------------------ Chapter 5 -------------------\n")
