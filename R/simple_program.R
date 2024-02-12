@@ -202,3 +202,16 @@ Sys.setLanguage("fr")
 tryCatch({1 + x}, error = function(e) print(e))
 
 print(warnings())
+
+
+cat("------------------ Chapter 5 -------------------\n")
+
+install.packages("lubridate")
+library("lubridate")
+
+now()
+now() - days(2)
+ymd("2010-12-08")
+
+Sys.setlocale("LC_TIME", "ja_JP.utf8")
+format(Sys.time(), format = "%a %Y %b %d %I:%M:%S %p")
