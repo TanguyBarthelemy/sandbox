@@ -26,7 +26,7 @@ jobs:
         run: |
           git diff
           git_diff=$(git diff)
-          echo "has_changed=$git_diff" >> $GITHUB_OUTPUT
+          echo "has_changed=$(git diff)" >> $GITHUB_OUTPUT
           echo "${{ steps.check_changes.outputs.changed }}"
           
       - name: print
