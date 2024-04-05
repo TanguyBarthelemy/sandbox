@@ -22,8 +22,8 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --quiet
-          git diff --quiet || echo "has_changed=Changes detected" >> $GITHUB_OUTPUT
+          git diff
+          git diff || echo "has_changed=Changes detected" >> $GITHUB_OUTPUT
           echo "${{ steps.check_changes.outputs.changed }}"
           
       - name: print
