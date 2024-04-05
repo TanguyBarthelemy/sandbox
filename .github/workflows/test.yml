@@ -25,18 +25,18 @@ jobs:
         id: check_changes
         run: |
           git diff
-          git diff || echo "has_changed=Changes detected" >> $GITHUB_OUTPUT
+          git diff || echo "has_changed=No changes" >> $GITHUB_OUTPUT
           echo "${{ steps.check_changes.outputs.changed }}"
           
       - name: print
         run: echo "$GITHUB_OUTPUT"
       
       - name: Commit changes
-        if: ${{ steps.check_changes.outputs.changed == 'Changes detected' }}
+        if: ${{ steps.check_changes.outputs.changed != 'No changes' }}
         run: |
           echo "il y a des changements"
       
       - name: Commit no changes
-        if: ${{ steps.check_changes.outputs.changed != 'Changes detected' }}
+        if: ${{ steps.check_changes.outputs.changed == 'No changes' }}
         run: |
           echo "il y a pas des changements"
