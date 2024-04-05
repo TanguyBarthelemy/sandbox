@@ -22,7 +22,9 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
+          git diff --quiet
           git diff --quiet || echo "has_changed=Changes detected" >> $GITHUB_OUTPUT
+          echo "${{ steps.check_changes.outputs.changed }}"
           
       - name: print
         run: echo "$GITHUB_OUTPUT"
@@ -30,11 +32,9 @@ jobs:
       - name: Commit changes
         if: ${{ steps.check_changes.outputs.changed == 'Changes detected' }}
         run: |
-          echo "il y a des changements steps.check_changes.outputs.changed"
-          echo ${{ steps.check_changes.outputs.changed }}
+          echo "il y a des changements"
       
       - name: Commit no changes
         if: ${{ steps.check_changes.outputs.changed != 'Changes detected' }}
         run: |
-          echo "il y a pas des changements steps.check_changes.outputs.changed"
-          echo ${{ steps.check_changes.outputs.changed }}
+          echo "il y a pas des changements"
