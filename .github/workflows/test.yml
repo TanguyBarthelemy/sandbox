@@ -1,0 +1,31 @@
+# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
+# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+on: workflow_dispatch
+
+name: Commands
+
+jobs:
+  style:
+    name: style
+    runs-on: ubuntu-latest
+    outputs:
+      has_changed: ${{ steps.check_changes.outputs.changed }}
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # Check if there are any changes
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --quiet || echo "has_changed=Changes detected" >> $GITHUB_OUTPUT
+          
+      - name: print
+        run: echo "$GITHUB_OUTPUT"
+      
+      - name: Commit no changes
+        if: ${{ steps.check_changes.outputs.changed != 'Changes detected' }}
+        run: |
+          echo "il y a des changements steps.check_changes.outputs.changed"
+          echo ${{ steps.check_changes.outputs.changed }}
