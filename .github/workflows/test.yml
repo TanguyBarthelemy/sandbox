@@ -16,14 +16,16 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: create
-        run: touch news.txt
+        run: |
+          touch news.txt
+          git add -A 
         
       # Check if there are any changes
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --no-index
-          git diff --no-index || echo "has_changed=Changes detected" >> $GITHUB_OUTPUT
+          git diff
+          git diff || echo "has_changed=Changes detected" >> $GITHUB_OUTPUT
           echo "${{ steps.check_changes.outputs.changed }}"
           
       - name: print
