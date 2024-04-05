@@ -17,8 +17,8 @@ jobs:
 
       - name: create
         run: |
-          #touch news.txt
-          #git add -N news.txt
+          touch news.txt
+          git add -N news.txt
         
       # Check if there are any changes
       - name: Check for changes
