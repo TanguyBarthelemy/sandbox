@@ -40,7 +40,7 @@ jobs:
       - name: Commit changes
         env:
           has_changed: ${{ steps.check_changes.outputs.changed }}
-        if: $has_changed != ""
+        if: "$has_changed" != ""
         run: |
           echo "il y a des changements"
       
