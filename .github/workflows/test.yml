@@ -28,14 +28,19 @@ jobs:
           git_diff=$(git diff --name-only)
           echo "has_changed=$(git diff --name-only)" >> $GITHUB_OUTPUT
           echo "has_changed=bon" >> $GITHUB_OUTPUT
-          echo "Voici les fichiers modifiés :\n $git_diff"
+          echo "Voici les fichiers modifiés : $git_diff"
           echo "${{ steps.check_changes.outputs.changed }}"
           
       - name: print
-        run: echo "$GITHUB_OUTPUT"
+        env:
+          has_changed: ${{ steps.check_changes.outputs.changed }}
+        run: |
+          echo "$has_changed"
       
       - name: Commit changes
-        if: ${{ steps.check_changes.outputs.changed != '' }}
+        env:
+          has_changed: ${{ steps.check_changes.outputs.changed }}
+        if: $has_changed != ""
         run: |
           echo "il y a des changements"
       
