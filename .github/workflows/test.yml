@@ -18,8 +18,8 @@ jobs:
           touch news.txt
           git add -N news.txt
           
-      - id: sets-a-secret
-        name: Generate, mask, and output a secret
+      - name: Generate, mask, and output a secret
+        id: sets-a-secret
         run: |
           the_secret=$((RANDOM))
           echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
@@ -30,27 +30,27 @@ jobs:
         
       # Check if there are any changes
       - name: Check for changes
-        id: check_changes
+        id: check-changes
         run: |
           git diff --name-only
           git_diff=$(git diff --name-only)
-          echo "has_changed=$git_diff" >> "$GITHUB_OUTPUT"
+          echo "has-changed=$git_diff" >> "$GITHUB_OUTPUT"
           echo "Voici les fichiers modifiés : $git_diff"
           
       - name: print
         env:
-          has_changed: ${{ steps.check_changes.outputs.changed }}
+          has-changed: ${{ steps.check_changes.outputs.changed }}
         run: |
           echo "$has_changed"
       
       - name: Commit changes
         env:
-          has_changed: ${{ steps.check_changes.outputs.changed }}
-        if: ${{ steps.check_changes.outputs.changed != '' }}
+          has_changed: ${{ steps.check-changes.outputs.changed }}
+        if: ${{ steps.check-changes.outputs.changed != '' }}
         run: |
           echo "il y a des changements"
       
       - name: Commit no changes
-        if: ${{ steps.check_changes.outputs.changed == '' }}
+        if: ${{ steps.check-changes.outputs.changed == '' }}
         run: |
           echo "il y a pas des changements"
