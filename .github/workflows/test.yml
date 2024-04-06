@@ -41,7 +41,7 @@ jobs:
         env:
           has-changed: ${{ steps.check_changes.outputs.has-changed }}
         run: |
-          echo "$has_changed"
+          echo "$has-changed"
       
       - name: Commit changes
         env:
@@ -51,6 +51,6 @@ jobs:
           echo "il y a des changements"
       
       - name: Commit no changes
-        if: ${{ steps.check-changes.outputs.changed == '' }}
+        if: ${{ steps.check-changes.outputs.has-changed == '' }}
         run: |
           echo "il y a pas des changements"
