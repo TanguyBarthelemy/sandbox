@@ -16,7 +16,7 @@ jobs:
       - name: create
         run: |
           touch news.txt news2.txt
-          git add -A
+          git add -N *.txt
           
       - name: Generate, mask, and output a secret
         id: sets-a-secret
