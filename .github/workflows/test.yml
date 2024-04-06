@@ -26,10 +26,10 @@ jobs:
         run: |
           git diff --name-only
           git_diff=$(git diff --name-only)
-          #echo "has_changed=$(git diff --name-only)" >> $GITHUB_OUTPUT
+          echo "has_changed=$(git diff --name-only)" >> $GITHUB_OUTPUT
           echo "has_changed=bon)" >> $GITHUB_OUTPUT
-          #echo "Voici les modifs :\n $git_diff"
-          #echo "${{ steps.check_changes.outputs.changed }}"
+          echo "Voici les fichiers modifiés :\n $git_diff"
+          echo "${{ steps.check_changes.outputs.changed }}"
           
       - name: print
         run: echo "$GITHUB_OUTPUT"
