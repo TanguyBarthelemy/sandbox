@@ -8,8 +8,6 @@ jobs:
   style:
     name: style
     runs-on: ubuntu-latest
-    outputs:
-      has_changed: ${{ steps.check_changes.outputs.changed }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -26,7 +24,7 @@ jobs:
         run: |
           git diff --name-only
           git_diff=$(git diff --name-only)
-          echo "has_changed=$(git diff --name-only)" >> $GITHUB_OUTPUT
+          echo "has_changed=$(git diff --name-only)" >> "$GITHUB_OUTPUT"
           echo "Voici les fichiers modifiés : $git_diff"
           echo "${{ steps.check_changes.outputs.changed }}"
           
