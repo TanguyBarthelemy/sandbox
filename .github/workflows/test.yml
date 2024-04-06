@@ -34,7 +34,7 @@ jobs:
         run: |
           git diff --name-only
           git_diff=$(git diff --name-only)
-          echo "has-changed=$git_diff" >> "$GITHUB_OUTPUT"
+          echo "has-changed=$(git diff --name-only)" >> "$GITHUB_OUTPUT"
           echo "Voici les fichiers modifiés : $git_diff"
           
       - name: print
