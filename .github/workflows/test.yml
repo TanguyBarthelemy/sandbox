@@ -39,13 +39,13 @@ jobs:
           
       - name: print
         env:
-          has-changed: ${{ steps.check_changes.outputs.has-changed }}
+          has-changed: ${{ steps.check-changes.outputs.has-changed }}
         run: |
           echo "$has-changed"
       
       - name: Commit changes
         env:
-          has_changed: ${{ steps.check-changes.outputs.has-changed }}
+          has-changed: ${{ steps.check-changes.outputs.has-changed }}
         if: ${{ steps.check-changes.outputs.has-changed != '' }}
         run: |
           echo "il y a des changements"
