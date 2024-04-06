@@ -24,7 +24,7 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --exit-code
+          git diff --name-only
           git_diff=$(git diff --name-only)
           #echo "has_changed=$(git diff --name-only)" >> $GITHUB_OUTPUT
           echo "has_changed=bon)" >> $GITHUB_OUTPUT
