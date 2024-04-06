@@ -38,8 +38,8 @@ jobs:
       
       - name: Commit changes
         env:
-          has_changed: ${{ steps.check-changes.outputs.has-changed == 'true' }}
-        if: ${{ steps.check-changes.outputs.has-changed }}
+          has_changed: ${{ steps.check-changes.outputs.has-changed }}
+        if: ${{ steps.check-changes.outputs.has-changed == 'true' }}
         run: |
           echo "il y a des changements"
       
