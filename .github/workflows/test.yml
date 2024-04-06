@@ -1,6 +1,6 @@
 # Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
-on: workflow_dispatch
+on: push
 
 name: Commands
 
@@ -39,14 +39,14 @@ jobs:
           
       - name: print
         env:
-          has-changed: ${{ steps.check_changes.outputs.changed }}
+          has-changed: ${{ steps.check_changes.outputs.has-changed }}
         run: |
           echo "$has_changed"
       
       - name: Commit changes
         env:
-          has_changed: ${{ steps.check-changes.outputs.changed }}
-        if: ${{ steps.check-changes.outputs.changed != '' }}
+          has_changed: ${{ steps.check-changes.outputs.has-changed }}
+        if: ${{ steps.check-changes.outputs.has-changed != '' }}
         run: |
           echo "il y a des changements"
       
