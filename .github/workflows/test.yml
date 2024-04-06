@@ -26,9 +26,10 @@ jobs:
         run: |
           git diff --exit-code
           git_diff=$(git diff --exit-code)
-          echo "has_changed=$(git diff --exit-code)" >> $GITHUB_OUTPUT
-          echo "Voici les modifs :\n $git_diff"
-          echo "${{ steps.check_changes.outputs.changed }}"
+          #echo "has_changed=$(git diff --exit-code)" >> $GITHUB_OUTPUT
+          echo "has_changed=bon)" >> $GITHUB_OUTPUT
+          #echo "Voici les modifs :\n $git_diff"
+          #echo "${{ steps.check_changes.outputs.changed }}"
           
       - name: print
         run: echo "$GITHUB_OUTPUT"
