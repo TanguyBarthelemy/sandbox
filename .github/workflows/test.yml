@@ -44,6 +44,6 @@ jobs:
           echo "il y a des changements"
       
       - name: Commit no changes
-        if: ${{ ! steps.check-changes.outputs.has-changed }}
+        if: ${{ !steps.check-changes.outputs.has-changed }}
         run: |
           echo "il y a pas des changements"
