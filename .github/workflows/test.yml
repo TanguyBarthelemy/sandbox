@@ -17,6 +17,16 @@ jobs:
         run: |
           touch news.txt
           git add -N news.txt
+          
+      - id: sets-a-secret
+        name: Generate, mask, and output a secret
+        run: |
+          the_secret=$((RANDOM))
+          echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
+        
+      - name: Use that secret output (protected by a mask)
+        run: |
+          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
         
       # Check if there are any changes
       - name: Check for changes
@@ -37,7 +47,7 @@ jobs:
       - name: Commit changes
         env:
           has_changed: ${{ steps.check_changes.outputs.changed }}
-        if: ${{ steps.check_changes.outputs.changed == '' }}
+        if: ${{ steps.check_changes.outputs.changed != '' }}
         run: |
           echo "il y a des changements"
       
