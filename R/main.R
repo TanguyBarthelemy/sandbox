@@ -34,7 +34,7 @@ f <- function(output = "word", eval = FALSE, font_size = 12, code = TRUE) {
         no = ""
     )
 
-    content <- "print(getwd())\nplot(AirPassengers)"
+    content <- "plot(AirPassengers)"
 
     rmd_body <- paste0(
         "\n## Running Code\n\n",
@@ -58,9 +58,11 @@ rmd_content <- f("pdf", eval = TRUE, font_size = 16)
 print(rmd_content)
 cat(rmd_content)
 
+rmd_file <- tempfile(pattern = "template", fileext = ".Rmd")
+out_file <- tempfile(pattern = "output", fileext = ".pdf")
 
-rmd_file <- normalizePath("./Rmd/format_code.Rmd", mustWork = TRUE)
-out_file <- normalizePath("./Rmd/format_code.pdf", mustWork = TRUE)
+# rmd_file <- normalizePath("./Rmd/format_code.Rmd", mustWork = TRUE)
+# out_file <- normalizePath("./Rmd/format_code.pdf", mustWork = TRUE)
 
 write(rmd_content, file = rmd_file)
 
