@@ -47,8 +47,8 @@ f <- function(output = "word", eval = FALSE, font_size = 12, code = TRUE) {
         ifelse(code, "```", ""), "\n"
     )
     
-    rmd_content <- paste0(rmd_header, rmd_pdf, rmd_body)
-    # rmd_content <- paste0(rmd_header, rmd_body)
+    # rmd_content <- paste0(rmd_header, rmd_pdf, rmd_body)
+    rmd_content <- paste0(rmd_header, rmd_body)
 
     return(rmd_content)
 }
