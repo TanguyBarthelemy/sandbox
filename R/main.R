@@ -4,8 +4,8 @@ print(getwd())
 print(list.files(all.files = FALSE, full.names = TRUE, recursive = TRUE))
 
 
-# install.packages("remotes")
-# remotes::install_github("TanguyBarthelemy/TBox")
+install.packages("remotes")
+remotes::install_github("TanguyBarthelemy/TBox")
 
 
 f <- function(output = "word", eval = FALSE, font_size = 12, code = TRUE) {
