@@ -61,7 +61,7 @@ cat(rmd_content)
 rmd_file <- tempfile(pattern = "template", fileext = ".Rmd")
 out_file <- tempfile(pattern = "output", fileext = ".pdf")
 
-# rmd_file <- normalizePath("./Rmd/format_code.Rmd", mustWork = TRUE)
+rmd_file <- normalizePath("./Rmd/format_code.Rmd", mustWork = TRUE)
 # out_file <- normalizePath("./Rmd/format_code.pdf", mustWork = TRUE)
 
 write(rmd_content, file = rmd_file)
