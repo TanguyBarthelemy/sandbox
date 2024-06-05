@@ -8,10 +8,7 @@ print(list.files(all.files = FALSE, full.names = TRUE, recursive = TRUE))
 # remotes::install_github("TanguyBarthelemy/TBox")
 
 
-f <- function(output = "word",
-              eval = FALSE,
-              font_size = 12,
-              code = TRUE) {
+f <- function(output = "word", eval = FALSE, font_size = 12, code = TRUE) {
 
     rmd_header <- paste0(
         "---\ntitle: \"Format code\"\noutput:\n  ",
@@ -51,7 +48,7 @@ f <- function(output = "word",
     )
     
     rmd_content <- paste0(rmd_header, rmd_pdf, rmd_body)
-    rmd_content <- paste0(rmd_header, rmd_body)
+    # rmd_content <- paste0(rmd_header, rmd_body)
 
     return(rmd_content)
 }
