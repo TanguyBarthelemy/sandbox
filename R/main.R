@@ -66,4 +66,7 @@ rmd_file <- normalizePath("./Rmd/format_code.Rmd", mustWork = TRUE)
 out_file <- normalizePath("./Rmd/format_code.pdf", mustWork = TRUE)
 
 write(rmd_content, file = rmd_file)
+
+
+install.packages("rmarkdown")
 rmarkdown::render(input = rmd_file, output_file = out_file)
