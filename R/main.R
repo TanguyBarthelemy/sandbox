@@ -59,13 +59,20 @@ print(rmd_content)
 cat(rmd_content)
 
 rmd_file <- tempfile(pattern = "template", fileext = ".Rmd")
-out_file <- tempfile(pattern = "output", fileext = ".pdf")
+# out_file <- tempfile(pattern = "output", fileext = ".pdf")
 
-# rmd_file <- normalizePath("./Rmd/format_code.Rmd", mustWork = TRUE)
-out_file <- normalizePath("./Rmd/format_code.pdf", mustWork = TRUE)
+rmd_file <- normalizePath("./Rmd/format_code.Rmd", mustWork = TRUE)
+# out_file <- normalizePath("./Rmd/format_code.pdf", mustWork = TRUE)
+
+print(rmd_file)
+# print(out_file)
 
 write(rmd_content, file = rmd_file)
 
 
 install.packages("rmarkdown")
-rmarkdown::render(input = rmd_file, output_file = out_file)
+rmarkdown::render(
+    input = rmd_file, 
+    output_file = "output", 
+    output_dir = tempdir()
+)
