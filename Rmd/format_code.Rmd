@@ -9,7 +9,7 @@ code-block-border-left: "#31BAE9"
 ---
 
 \fontsize{16}{16}
-\setmonofont[ExternalLocation=../FiraCode/]{FiraCode-Regular.ttf}
+\setmonofont[ExternalLocation=FiraCode/]{FiraCode-Regular.ttf}
 
 ## Running Code
 
