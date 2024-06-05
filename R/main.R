@@ -1,3 +1,6 @@
+
+print(getwd())
+
 install.packages("remotes")
 remotes::install_github("TanguyBarthelemy/TBox")
 
@@ -56,8 +59,8 @@ rmd_content <- f("pdf", eval = TRUE, font_size = 16)
 ext <- ".pdf"
 
 
-rmd_file <- "./Rmd/format_code.Rmd"
-out_file <- "./Rmd/format_code.pdf"
+rmd_file <- "../Rmd/format_code.Rmd"
+out_file <- "../Rmd/format_code.pdf"
 
 write(rmd_content, file = rmd_file)
 rmarkdown::render(input = rmd_file, output_file = out_file)
