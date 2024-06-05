@@ -3,14 +3,12 @@ print(getwd())
 
 print(list.files(all.files = FALSE, full.names = TRUE, recursive = TRUE))
 
-write("rmd_content", file = "./Rmd/format_code.Rmd")
 
-install.packages("remotes")
-remotes::install_github("TanguyBarthelemy/TBox")
+# install.packages("remotes")
+# remotes::install_github("TanguyBarthelemy/TBox")
 
 
 f <- function(output = "word",
-              browser = getOption("browser"),
               eval = FALSE,
               font_size = 12,
               code = TRUE) {
@@ -39,7 +37,7 @@ f <- function(output = "word",
         no = ""
     )
 
-    content <- "plot(AirPassengers)"
+    content <- "print(getwd())\nplot(AirPassengers)"
 
     rmd_body <- paste0(
         "\n## Running Code\n\n",
@@ -51,8 +49,9 @@ f <- function(output = "word",
         content, "\n",
         ifelse(code, "```", ""), "\n"
     )
-
+    
     rmd_content <- paste0(rmd_header, rmd_pdf, rmd_body)
+    rmd_content <- paste0(rmd_header, rmd_body)
 
     return(rmd_content)
 }
@@ -60,10 +59,11 @@ f <- function(output = "word",
 rmd_content <- f("pdf", eval = TRUE, font_size = 16)
 
 print(rmd_content)
+cat(rmd_content)
 
 
-rmd_file <- "../Rmd/format_code.Rmd"
-out_file <- "../Rmd/format_code.pdf"
+rmd_file <- normalizePath("./Rmd/format_code.Rmd", mustWork = TRUE)
+out_file <- normalizePath("./Rmd/format_code.pdf", mustWork = TRUE)
 
-# write(rmd_content, file = rmd_file)
-# rmarkdown::render(input = rmd_file, output_file = out_file)
+write(rmd_content, file = rmd_file)
+rmarkdown::render(input = rmd_file, output_file = out_file)
