@@ -1,0 +1,49 @@
+# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
+# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+on: push
+
+name: Commands
+
+jobs:
+  style:
+    name: style
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: create
+        run: |
+          touch news.txt news2.txt
+          git add -N *.txt
+        
+      # Check if there are any changes
+      - name: Check for changes
+        id: check-changes
+        run: |
+          if git diff --quiet; then
+            echo "has-changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has-changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          git_diff=$(git diff --name-only)
+          echo "Voici les fichiers modifiés : $git_diff"
+          
+      - name: print
+        env:
+          has_changed: ${{ steps.check-changes.outputs.has-changed }}
+        run: |
+          echo "$has_changed"
+      
+      - name: Commit changes
+        env:
+          has_changed: ${{ steps.check-changes.outputs.has-changed }}
+        if: ${{ steps.check-changes.outputs.has-changed == 'true' }}
+        run: |
+          echo "il y a des changements"
+      
+      - name: Commit no changes
+        if: ${{ steps.check-changes.outputs.has-changed == 'false' }}
+        run: |
+          echo "il y a pas des changements"
