@@ -8,6 +8,7 @@ download.file(
     destfile = my_path
 )
 
+install.packages("pak")
 pak::pak("TanguyBarthelemy/IssueTrackeR")
 install.packages("testthat")
 
