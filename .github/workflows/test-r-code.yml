@@ -32,4 +32,4 @@ jobs:
           r-version: ${{ matrix.r }}
     
       - name: test-r-code
-        run: Rscript ./R/lm-fit.R
+        run: Rscript ./R/main.R
