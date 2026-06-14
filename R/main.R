@@ -74,6 +74,9 @@ l <- list(
 
 dput(my_issues)
 
+print(Sys.timezone(location = TRUE))
+print(Sys.timezone(location = FALSE))
+
 test_that("[ function is good", {
     testthat::expect_identical(my_issues[], my_issues)
     testthat::expect_identical(my_issues[1], l[[1L]])
