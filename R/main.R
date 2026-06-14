@@ -11,6 +11,8 @@ download.file(
 pak::pak("TanguyBarthelemy/IssueTrackeR")
 install.packages("testthat")
 
+library("IssueTrackeR")
+library("testthat")
 
 closed_issues <- get_issues(
     source = "local",
