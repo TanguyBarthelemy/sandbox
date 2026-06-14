@@ -1,19 +1,19 @@
 
-my_dir <- tempdir()
-file_name <- "c.yaml"
-my_path <- file.path(my_dir, file_name)
-
-download.file(
-    url = "https://github.com/TanguyBarthelemy/IssueTrackeR/blob/develop/tests/testthat/data/closed_issues.yaml", 
-    destfile = my_path
-)
-
 install.packages("pak")
 pak::pak("TanguyBarthelemy/IssueTrackeR")
 install.packages("testthat")
 
 library("IssueTrackeR")
 library("testthat")
+
+my_dir <- tempdir()
+file_name <- "c.yaml"
+my_path <- file.path(my_dir, file_name)
+
+download.file(
+    url = "https://raw.githubusercontent.com/TanguyBarthelemy/IssueTrackeR/refs/heads/develop/tests/testthat/data/closed_issues.yaml", 
+    destfile = my_path
+)
 
 closed_issues <- get_issues(
     source = "local",
